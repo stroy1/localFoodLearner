@@ -5,6 +5,6 @@ setup(
 	version="0.0.1",
 	author="Stacey Troy",
 	install_requires=[
-		"pandas",
+		"python-dateutil",
 	]
 )
