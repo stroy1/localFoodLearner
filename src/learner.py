@@ -4,14 +4,39 @@ from dateutil.relativedelta import relativedelta
 import random
 
 
-def add_team_vote(*kwargs):
-	today = datetime.now().strftime('%x')
-	entry = today
-	with open('LunchSpotData.txt', 'a') as lunch_data_fp:
-		for restaurant in kwargs:
-			entry += (',' + restaurant)
-		entry += '\n'
-		lunch_data_fp.write(entry)
+def add_team_vote(*args, **kwargs):
+    today = kwargs.pop('today', datetime.now().strftime('%x'))
+    entry = today
+
+    with open('LunchSpotData.txt', 'a') as lunch_data_fp:
+        for restaurant in args:
+            print restaurant
+            entry += (',' + restaurant)
+        entry += '\n'
+        lunch_data_fp.write(entry)
+
+
+def seed_data(number_of_teammates):
+    lunch_spot_pool = []
+    lunch_spot_features = defaultdict(list)
+
+    # get default pool for restaurants
+    with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
+        for line in lunch_feature_fp:
+            restaurant_info = line.split(',')
+            lunch_spot_pool.append(restaurant_info[0])
+            for index in range(1, len(restaurant_info)):
+                lunch_spot_features[restaurant_info[0]].append(restaurant_info[index])
+
+    start_timestamp = datetime.now() - relativedelta(months=3)
+    for relative_days in range(30*3):
+        entry_date = start_timestamp + relativedelta(days=relative_days)
+        random_team_votes = []
+        for team_vote in range(number_of_teammates):
+            random_team_votes.append(random.choice(lunch_spot_pool))
+        # TODO: don't open and close file for every seed
+        add_team_vote(*random_team_votes, today=entry_date.strftime('%x'))
+
 
 def get_two_choices():
 	lunch_spot_pool = []
