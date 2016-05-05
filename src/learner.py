@@ -4,6 +4,9 @@ from dateutil.relativedelta import relativedelta
 import random
 
 
+ACCEPTABLE_MONTH_TIMEFRAME = 3
+
+
 def add_team_vote(*args, **kwargs):
     today = kwargs.pop('today', datetime.now().strftime('%x'))
     entry = today
@@ -27,8 +30,8 @@ def seed_data(number_of_teammates):
             for index in range(1, len(restaurant_info)):
                 lunch_spot_features[restaurant_info[0]].append(restaurant_info[index])
 
-    start_timestamp = datetime.now() - relativedelta(months=3)
-    for relative_days in range(30 * 3):
+    start_timestamp = datetime.now() - relativedelta(months=ACCEPTABLE_MONTH_TIMEFRAME)
+    for relative_days in range(30 * ACCEPTABLE_MONTH_TIMEFRAME):
         entry_date = start_timestamp + relativedelta(days=relative_days)
         random_team_votes = []
         for team_vote in range(number_of_teammates):
@@ -38,7 +41,6 @@ def seed_data(number_of_teammates):
 
 
 def aggregate_choices(lunch_spot_pool, lunch_spot_features):
-
     # add tally for each restaurant
     with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
         for line in lunch_feature_fp:
@@ -51,14 +53,13 @@ def aggregate_choices(lunch_spot_pool, lunch_spot_features):
     with open('LunchSpotData.txt', 'r') as lunch_data_fp:
         for line in lunch_data_fp:
             daily_restaurant_decisions = line.replace('\n', '').split(',')
-            if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=3) < datetime.now():
+            if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=ACCEPTABLE_MONTH_TIMEFRAME) < datetime.now():
                 for index in range(1, len(daily_restaurant_decisions)):
                     lunch_spot_pool.append(daily_restaurant_decisions[index])
 
     random.shuffle(lunch_spot_pool)
 
 def get_two_choices():
-
     # select first choice, get set of attributes
     first_choice = random.choice(lunch_spot_pool)
     first_choice_attributes = set(lunch_spot_features[first_choice])
