@@ -39,26 +39,25 @@ def seed_data(number_of_teammates):
 
 def aggregate_choices(lunch_spot_pool, lunch_spot_features):
 
-	# add tally for each restaurant
-	with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
-		for line in lunch_feature_fp:
+    # add tally for each restaurant
+    with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
+        for line in lunch_feature_fp:
             restaurant_info = line.replace('\n', '').split(',')
-			lunch_spot_pool.append(restaurant_info[0])
-			for index in range(1, len(restaurant_info)):
-				lunch_spot_features[restaurant_info[0]].append(restaurant_info[index])
+            lunch_spot_pool.append(restaurant_info[0])
+            for index in range(1, len(restaurant_info)):
+                lunch_spot_features[restaurant_info[0]].append(restaurant_info[index])
 
-	# skew restaurant decision toward resturants with more votes
-	with open('LunchSpotData.txt', 'r') as lunch_data_fp:
-		for line in lunch_data_fp:
-			daily_restaurant_decisions = line.replace('\n', '').split(',')
-			if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=3) < datetime.now():
-				for index in range(1, len(daily_restaurant_decisions)):
-					lunch_spot_pool.append(daily_restaurant_decisions[index])
-
-
-def get_two_choices():
+    # skew restaurant decision toward resturants with more votes
+    with open('LunchSpotData.txt', 'r') as lunch_data_fp:
+        for line in lunch_data_fp:
+            daily_restaurant_decisions = line.replace('\n', '').split(',')
+            if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=3) < datetime.now():
+                for index in range(1, len(daily_restaurant_decisions)):
+                    lunch_spot_pool.append(daily_restaurant_decisions[index])
 
     random.shuffle(lunch_spot_pool)
+
+def get_two_choices():
 
     # select first choice, get set of attributes
     first_choice = random.choice(lunch_spot_pool)
@@ -67,12 +66,10 @@ def get_two_choices():
     # get second choice where no attributes overlap
     second_choice = random.choice(lunch_spot_pool)
     second_choice_attributes = set(lunch_spot_features[second_choice])
-    print first_choice_attributes.intersection(second_choice_attributes)
 
     while (first_choice_attributes.intersection(second_choice_attributes)):
         second_choice = random.choice(lunch_spot_pool)
         second_choice_attributes = set(lunch_spot_features[second_choice])
-        print first_choice_attributes.intersection(second_choice_attributes)
 
     print first_choice
     print second_choice

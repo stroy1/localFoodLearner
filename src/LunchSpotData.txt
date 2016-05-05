@@ -1,4 +1,4 @@
-02/02/16,Ramen & Co.,The Melt Shop,El Luchador
+02/02/16,RamenCo.,The Melt Shop,El Luchador
 02/03/16,Schnippers,Fields Good Chicken,El Luchador
 02/04/16,Luke's Lobster,Chopt,Pita Press
 02/05/16,Open Kitchen,Sophie's,Vietspot
@@ -56,12 +56,12 @@
 03/28/16,Chipotle,Vietspot,Dos Toros
 03/29/16,Sophie's,Fields Good Chicken,Terri
 03/30/16,Dos Toros,Bon Chon,Smashburger
-03/31/16,Flavors,Ramen & Co.,Au Bon Pain
+03/31/16,Flavors,RamenCo.,Au Bon Pain
 04/01/16,Flavors,Chopt,Underground Pizza
-04/02/16,Ramen & Co.,Subway,Flavors
+04/02/16,RamenCo.,Subway,Flavors
 04/03/16,Schnippers,Just Salad,Smashburger
-04/04/16,Ramen & Co.,Just Salad,Vietspot
-04/05/16,Ramen & Co.,Dig Inn,El Luchador
+04/04/16,RamenCo.,Just Salad,Vietspot
+04/05/16,RamenCo.,Dig Inn,El Luchador
 04/06/16,Flavors,Hale and Hearty,Neapolitan Express
 04/07/16,Dos Toros,Potbelly,Terri
 04/08/16,Au Bon Pain,Neapolitan Express,Dig Inn
@@ -73,11 +73,11 @@
 04/14/16,Roti,Roti,Koyzina Kafe
 04/15/16,The Melt Shop,Roti,Jersey Mike's
 04/16/16,Luke's Lobster,Smashburger,Schnippers
-04/17/16,Lenwich,Kozina Kafe,Ramen & Co.
+04/17/16,Lenwich,Kozina Kafe,RamenCo.
 04/18/16,Sophie's,Pita Press,Jersey Mike's
 04/19/16,Bon Chon,Chipotle,Neapolitan Express
 04/20/16,Open Kitchen,Open Kitchen,Fields Good Chicken
-04/21/16,Ramen & Co.,Terri,Jersey Mike's
+04/21/16,RamenCo.,Terri,Jersey Mike's
 04/22/16,Chipotle,Underground Pizza,Subway
 04/23/16,Open Kitchen,Lenwich,Subway
 04/24/16,GRK,The Melt Shop,Au Bon Pain
