@@ -37,25 +37,26 @@ def seed_data(number_of_teammates):
         add_team_vote(*random_team_votes, today=entry_date.strftime('%x'))
 
 
-def get_two_choices():
-    lunch_spot_pool = []
-    lunch_spot_features = defaultdict(list)
+def aggregate_choices(lunch_spot_pool, lunch_spot_features):
 
-    # add tally for each restaurant
-    with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
-        for line in lunch_feature_fp:
+	# add tally for each restaurant
+	with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
+		for line in lunch_feature_fp:
             restaurant_info = line.replace('\n', '').split(',')
-            lunch_spot_pool.append(restaurant_info[0])
-            for index in range(1, len(restaurant_info)):
-                lunch_spot_features[restaurant_info[0]].append(restaurant_info[index])
+			lunch_spot_pool.append(restaurant_info[0])
+			for index in range(1, len(restaurant_info)):
+				lunch_spot_features[restaurant_info[0]].append(restaurant_info[index])
 
-    # skew restaurant decision toward resturants with more votes
-    with open('LunchSpotData.txt', 'r') as lunch_data_fp:
-        for line in lunch_data_fp:
-            daily_restaurant_decisions = line.split(',')
-            if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=3) < datetime.now():
-                for index in range(1, len(daily_restaurant_decisions)):
-                    lunch_spot_pool.append(daily_restaurant_decisions[index])
+	# skew restaurant decision toward resturants with more votes
+	with open('LunchSpotData.txt', 'r') as lunch_data_fp:
+		for line in lunch_data_fp:
+			daily_restaurant_decisions = line.replace('\n', '').split(',')
+			if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=3) < datetime.now():
+				for index in range(1, len(daily_restaurant_decisions)):
+					lunch_spot_pool.append(daily_restaurant_decisions[index])
+
+
+def get_two_choices():
 
     random.shuffle(lunch_spot_pool)
 
@@ -76,4 +77,9 @@ def get_two_choices():
     print first_choice
     print second_choice
 
+
+lunch_spot_pool = []
+lunch_spot_features = defaultdict(list)
+
+aggregate_choices(lunch_spot_pool, lunch_spot_features)
 get_two_choices()
