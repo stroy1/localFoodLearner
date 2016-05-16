@@ -57,19 +57,25 @@ def aggregate_choices(lunch_spot_pool, lunch_spot_features):
                 for index in range(1, len(daily_restaurant_decisions)):
                     lunch_spot_pool.append(daily_restaurant_decisions[index])
 
-    random.shuffle(lunch_spot_pool)
 
 def get_two_choices():
+
     # select first choice, get set of attributes
     first_choice = random.choice(lunch_spot_pool)
+    while (first_choice in yesterdays_choices):
+        first_choice = random.choice(lunch_spot_pool)
     first_choice_attributes = set(lunch_spot_features[first_choice])
 
     # get second choice where no attributes overlap
     second_choice = random.choice(lunch_spot_pool)
+    while (second_choice in yesterdays_choices):
+        second_choice = random.choice(lunch_spot_pool)
     second_choice_attributes = set(lunch_spot_features[second_choice])
 
     while (first_choice_attributes.intersection(second_choice_attributes)):
         second_choice = random.choice(lunch_spot_pool)
+        while (second_choice in yesterdays_choices):
+            second_choice = random.choice(lunch_spot_pool)
         second_choice_attributes = set(lunch_spot_features[second_choice])
 
     print first_choice
@@ -78,6 +84,9 @@ def get_two_choices():
 
 lunch_spot_pool = []
 lunch_spot_features = defaultdict(list)
+yesterdays_choices = []
 
 aggregate_choices(lunch_spot_pool, lunch_spot_features)
+yesterdays_choices = lunch_spot_pool[-3::]
+random.shuffle(lunch_spot_pool)
 get_two_choices()
