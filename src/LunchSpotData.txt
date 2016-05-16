@@ -89,3 +89,6 @@
 04/30/16,Neapolitan Express,GRK,Underground Pizza
 05/01/16,Potbelly,Potbelly,Potbelly
 05/04/16,Pita Press,Pita Press,Pita Press
+05/05/16,Diwan E Khaas,Diwan E Khaas,Diwan E Khaas
+05/12/16,Potbelly,Potbelly,Potbelly
+05/16/16,Chipotle,Chipotle,Vietspot
