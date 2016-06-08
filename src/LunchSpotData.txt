@@ -25,15 +25,15 @@
 02/26/16,Just Salad,El Luchador,Underground Pizza
 02/27/16,Potbelly,Hale and Hearty,Underground Pizza
 02/28/16,Lenwich,Schnippers,Pita Press
-02/29/16,Vietspot,Zeytuna,Kozina Kafe
+02/29/16,Vietspot,Zeytuna,Koyzina Kafe
 03/01/16,Pita Press,Hale and Hearty,GRK
-03/02/16,Terri,Lenwich,Kozina Kafe
+03/02/16,Terri,Lenwich,Koyzina Kafe
 03/03/16,Lenwich,Smashburger,Chipotle
 03/04/16,Dos Toros,Smashburger,Neapolitan Express
 03/05/16,Hale and Hearty,Flavors,Roti
 03/06/16,Pita Press,Open Kitchen,Luke's Lobster
 03/07/16,Sophie's,El Luchador,GRK
-03/08/16,Zeytuna,Terri,Kozina Kafe
+03/08/16,Zeytuna,Terri,Koyzina Kafe
 03/09/16,Jersey Mike's,Schnippers,Flavors
 03/10/16,Neapolitan Express,Open Kitchen,Open Kitchen
 03/11/16,Underground Pizza,Fields Good Chicken,Schnippers
@@ -73,7 +73,7 @@
 04/14/16,Roti,Roti,Koyzina Kafe
 04/15/16,The Melt Shop,Roti,Jersey Mike's
 04/16/16,Luke's Lobster,Smashburger,Schnippers
-04/17/16,Lenwich,Kozina Kafe,RamenCo.
+04/17/16,Lenwich,Koyzina Kafe,RamenCo.
 04/18/16,Sophie's,Pita Press,Jersey Mike's
 04/19/16,Bon Chon,Chipotle,Neapolitan Express
 04/20/16,Open Kitchen,Open Kitchen,Fields Good Chicken
@@ -92,3 +92,8 @@
 05/05/16,Diwan E Khaas,Diwan E Khaas,Diwan E Khaas
 05/12/16,Potbelly,Potbelly,Potbelly
 05/16/16,Chipotle,Chipotle,Vietspot
+05/17/16,Jersey Mike's,Jersey Mike's,Jersey Mike's
+05/24/16,Roti,Roti,Roti
+05/25/16,Chipotle,Chipotle,Flavors
+05/31/16,Bon Chon,Bon Chon,Lenwich
+06/07/16,Au Bon Pain,GRK,GRK
