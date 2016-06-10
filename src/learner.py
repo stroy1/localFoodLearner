@@ -82,6 +82,35 @@ def get_two_choices():
     print second_choice
 
 
+def remove_spot(target_restaurant):
+    # remove restaurant from list
+    feature_file_contents = ""
+    with open('LunchSpotFeatures.csv', 'r') as lunch_feature_fp:
+        feature_file_contents = lunch_feature_fp.readlines()
+
+    with open('LunchSpotFeatures.csv', 'w') as lunch_feature_fp:
+        for line in feature_file_contents:
+            restaurant_from_list = line.replace('\n', '').split(',')
+            if target_restaurant != restaurant_from_list[0]:
+                lunch_feature_fp.write(line)
+
+    # remove restaurant from Lunch choices
+    choice_file_contents = ""
+    with open('LunchSpotData.txt', 'r') as lunch_data_fp:
+        choice_file_contents = lunch_data_fp.readlines()
+
+    with open('LunchSpotData.txt', 'w') as lunch_data_fp:
+        for line in choice_file_contents:
+            daily_restaurant_decisions = line.replace('\n', '').split(',')
+            if target_restaurant != restaurant_from_list[0]:
+
+            
+            if datetime.strptime(daily_restaurant_decisions[0], '%x') - relativedelta(months=ACCEPTABLE_MONTH_TIMEFRAME) < datetime.now():
+                for index in range(1, len(daily_restaurant_decisions)):
+                    lunch_spot_pool.append(daily_restaurant_decisions[index])
+
+
+
 lunch_spot_pool = []
 lunch_spot_features = defaultdict(list)
 yesterdays_choices = []

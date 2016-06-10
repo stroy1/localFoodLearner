@@ -97,3 +97,4 @@
 05/25/16,Chipotle,Chipotle,Flavors
 05/31/16,Bon Chon,Bon Chon,Lenwich
 06/07/16,Au Bon Pain,GRK,GRK
+06/09/16,Dos Toros,Dos Toros,Dos Toros
